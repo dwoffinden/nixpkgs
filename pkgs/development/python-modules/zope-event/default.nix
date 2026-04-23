@@ -28,6 +28,12 @@ buildPythonPackage rec {
 
   pythonNamespaces = [ "zope" ];
 
+  patchPhase = ''
+    substituteInPlace pyproject.toml --replace \
+      'setuptools >= 78.1.1,< 81' \
+      setuptools
+  '';
+
   meta = {
     description = "Event publishing system";
     homepage = "https://github.com/zopefoundation/zope.event";
