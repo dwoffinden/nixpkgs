@@ -9,14 +9,14 @@
 
 buildPythonPackage (finalAttrs: {
   pname = "regex";
-  version = "2026.7.11";
+  version = "2026.7.19";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "mrabarnett";
     repo = "mrab-regex";
     tag = finalAttrs.version;
-    hash = "sha256-x9XjtIUjm1eV0GS0216ZimHx6DNxtxZV5pQ6dbkEfTc=";
+    hash = "sha256-E9/PkgJOxzbPE85HbZtkw6ZGP6YLUVeBcxFU7apZMss=";
   };
 
   nativeBuildInputs = [ pyprojectVersionPatchHook ];
