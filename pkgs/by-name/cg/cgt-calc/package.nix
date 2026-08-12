@@ -14,17 +14,12 @@ python3Packages.buildPythonApplication (finalAttrs: {
   src = fetchFromGitHub {
     owner = "KapJI";
     repo = "capital-gains-calculator";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-KPzADW+n82X08IMfSIl5JyYPm8fxbbowud8sBdUxRgA=";
+    #tag = "v${finalAttrs.version}";
+    rev = "076d236ea7592cf1cabf38d879a3cbd93470736e";
+    hash = "sha256-RaIERprly+3+CqXHxPHpK0b7HkjfM/a6DeoHOW4mYCI=";
   };
 
   patches = [
-    (fetchpatch {
-      # https://github.com/KapJI/capital-gains-calculator/pull/781
-      name = "update uv-build requirement.patch";
-      url = "https://github.com/KapJI/capital-gains-calculator/commit/0222eafdcf1911f3e2fd781697dc53311f529f62.patch";
-      hash = "sha256-L8jgrdA9t3x8mdaLmAuW6vFhHCLGA+0gQ/8j9EcYKhE=";
-    })
   ];
 
   build-system = with python3Packages; [
@@ -40,6 +35,10 @@ python3Packages.buildPythonApplication (finalAttrs: {
     types-requests
     yfinance
     colorama
+    openpyxl
+    xlrd
+    iso4217parse
+    pdfplumber
   ];
 
   makeWrapperArgs = lib.optionals withTeXLive [
